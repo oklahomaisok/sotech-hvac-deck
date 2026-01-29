@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Install & Technician Program | SouthernTech</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HVAC Install & Technician Program">
+    <meta property="og:description" content="Launch your career in 10 months. Earn industry certifications. Get hired.">
+    <meta property="og:image" content="og-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HVAC Install & Technician Program">
+    <meta name="twitter:description" content="Launch your career in 10 months. Earn industry certifications. Get hired.">
+    <meta name="twitter:image" content="og-preview.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <!-- Fonts: Inter for body, Bebas Neue for display -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* SouthernTech Brand Colors */
+        :root {
+            --sotech-blue: #0063A7;
+            --sotech-teal: #009999;
+            --sotech-dark: #0a2540;
+            --white: #ffffff;
+
+            /* Typography Mapping */
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-sub: 'Roboto Slab', serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #071a2e;
+            color: white;
+        }
+
+        h1, .font-display { font-family: var(--font-display); }
+        h2, h3, .font-sub { font-family: var(--font-sub); }
+        p, .font-body { font-family: var(--font-body); }
+
+        /* Animation Keyframes */
+        @keyframes animationIn {
+            0% { opacity: 0; transform: translateY(30px); filter: blur(8px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0px); }
+        }
+
+        /* Bar Chart Animation */
+        @keyframes grow-up {
+            0% { transform: scaleY(0); }
+            100% { transform: scaleY(1); }
+        }
+
+        .animate-bar {
+            transform-origin: bottom;
+            transform: scaleY(0);
+            animation: grow-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-play-state: paused;
+        }
+
+        .bar-stage.animate .animate-bar { animation-play-state: running; }
+
+        /* Utility Classes */
+        .animate-on-scroll { animation-play-state: paused !important; }
+        .animate-on-scroll.animate { animation-play-state: running !important; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee { animation: marquee 25s linear infinite; }
+
+        /* Backgrounds */
+        .bg-grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(0, 153, 153, 0.15) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+
+        /* Responsive Card Sizing */
+        .slide-container {
+            width: 90vw;
+            height: 72vh;
+            min-width: 0;
+        }
+
+        @media (min-width: 768px) {
+            .slide-container {
+                width: 500px;
+                height: auto;
+                aspect-ratio: 3/4;
+            }
+        }
+
+        /* Pulse animation for stats */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 153, 153, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 153, 153, 0.5); }
+        }
+        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+        /* Counter animation */
+        @keyframes count-up {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center selection:bg-[#009999]/30">
+
+    <!-- Fixed Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-6 py-4 bg-[#0a2540]/95 backdrop-blur-md border-b border-white/10 h-16">
+        <div class="flex items-center gap-3 w-auto md:w-1/3">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-[#0063A7] rounded flex items-center justify-center">
+                    <span class="font-display text-white text-lg">ST</span>
+                </div>
+                <span class="hidden sm:block font-display text-white text-xl tracking-wide">SouthernTech</span>
+            </div>
+        </div>
+
+        <div id="pagination-dots" class="hidden sm:flex items-center justify-center gap-2 w-1/3">
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="0"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="1"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="2"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="3"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="4"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="5"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="6"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999] cursor-pointer transition-all" data-index="7"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-white hover:bg-[#009999] cursor-pointer transition-all" data-index="8"></div>
+        </div>
+
+        <div class="hidden md:flex items-center justify-end gap-2 w-1/3">
+            <button id="prevBtn" class="p-2 rounded-full hover:bg-white/10 text-neutral-400 hover:text-[#009999] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button id="nextBtn" class="p-2 rounded-full hover:bg-white/10 text-neutral-400 hover:text-[#009999] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+        </div>
+
+        <div class="md:hidden flex items-center justify-end w-auto text-[#009999] text-xs gap-1 opacity-80">
+             <span class="font-display font-bold tracking-widest">SWIPE</span>
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+    </nav>
+
+    <!-- Main Presentation Slider -->
+    <main id="slider" class="flex flex-row overflow-x-auto snap-x snap-mandatory hide-scrollbar w-full pt-24 md:pt-28 pb-6 md:pb-10 px-4 md:px-10 gap-x-4 md:gap-x-12 scroll-smooth" style="mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);">
+
+        <!-- SLIDE 1: COVER -->
+        <section class="slide-container flex-shrink-0 flex flex-col overflow-hidden snap-center group bg-[#0a2540] border-white/10 border relative shadow-2xl justify-between rounded-xl" id="slide-0">
+            <div class="absolute inset-0 z-0">
+                <img src="hero-hvac.jpg" class="w-full h-full object-cover opacity-70" alt="HVAC Technician at work">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a2540] via-[#0a2540]/60 to-[#0a2540]/30"></div>
+            </div>
+
+            <div class="flex flex-col z-10 p-6 md:p-10 relative h-full">
+                <div class="flex [animation:animationIn_0.8s_ease-out_0s_both] animate-on-scroll animate mb-4 md:mb-8 items-start justify-between">
+                    <span class="font-body text-[10px] md:text-xs text-[#009999] uppercase tracking-widest font-bold border border-[#009999]/30 px-2 py-1 rounded bg-[#0a2540]/80 backdrop-blur-md">Career Program</span>
+                </div>
+
+                <div class="mt-auto mb-4 md:mb-6">
+                    <h1 class="leading-[0.95] [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll animate text-5xl md:text-7xl tracking-wide font-display uppercase text-white mb-4 md:mb-6 shadow-black drop-shadow-lg">
+                        HVAC Install<br>
+                        <span class="text-[#009999]">& Technician</span>
+                    </h1>
+                    <div class="[animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll animate">
+                        <p class="leading-relaxed text-sm text-neutral-200 font-body max-w-[90%] border-l-4 border-[#009999] pl-4 drop-shadow-md">
+                            Launch your career in 10 months. Earn industry certifications. Get hired.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-4 md:pt-6 border-t border-white/10 flex justify-between items-end [animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll animate">
+                    <div class="flex flex-col">
+                        <span class="text-[10px] text-neutral-400 uppercase mb-1 tracking-wider font-body">Program Duration</span>
+                        <span class="font-display text-xl md:text-2xl tracking-wide text-white">1,000 Hours</span>
+                    </div>
+                    <div class="text-[#009999] flex items-center gap-2 text-xs uppercase tracking-widest font-bold font-body">
+                        Explore
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: THE OPPORTUNITY -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center rounded-xl" id="slide-1">
+            <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+
+            <div class="flex flex-col h-full p-6 md:p-10 relative z-10">
+                <header class="flex [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll animate items-center justify-between mb-6">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[02/09]</span>
+                    <span class="font-display text-[10px] md:text-xs font-bold uppercase tracking-widest text-white/70">The Opportunity</span>
+                </header>
+
+                <div class="flex-grow space-y-6 flex flex-col justify-center">
+                    <div class="space-y-3 [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate">
+                        <h2 class="text-3xl md:text-4xl text-white font-display uppercase tracking-tight leading-none">
+                            An Industry<br><span class="text-[#009999]">That Needs You</span>
+                        </h2>
+                        <div class="w-12 h-1 bg-[#009999]"></div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 gap-3 [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll animate">
+                        <div class="bg-[#0063A7]/20 border border-[#0063A7]/30 p-4 rounded-lg text-center">
+                            <div class="text-[#009999] font-display text-4xl md:text-5xl mb-1">9%</div>
+                            <div class="text-neutral-300 text-[10px] uppercase tracking-wider">Job Growth<br>2023-2033</div>
+                        </div>
+                        <div class="bg-[#0063A7]/20 border border-[#0063A7]/30 p-4 rounded-lg text-center">
+                            <div class="text-[#009999] font-display text-4xl md:text-5xl mb-1">42K+</div>
+                            <div class="text-neutral-300 text-[10px] uppercase tracking-wider">New Jobs<br>Each Year</div>
+                        </div>
+                        <div class="bg-[#0063A7]/20 border border-[#0063A7]/30 p-4 rounded-lg text-center col-span-2">
+                            <div class="text-[#009999] font-display text-3xl md:text-4xl mb-1">$132.9 Billion</div>
+                            <div class="text-neutral-300 text-[10px] uppercase tracking-wider">U.S. HVAC Industry Revenue by 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="[animation:animationIn_0.8s_ease-out_0.7s_both] animate-on-scroll animate bg-white/5 p-4 rounded-lg border-l-2 border-[#009999]">
+                        <p class="text-xs text-neutral-300">
+                            <strong class="text-white">Growing 3x faster</strong> than the average occupation. The skilled trades shortage means employers are actively seeking trained technicians.
+                        </p>
+                        <p class="text-[10px] text-neutral-500 mt-2">Source: U.S. Bureau of Labor Statistics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: EARNING POTENTIAL -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] text-white relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center rounded-xl" id="slide-2">
+            <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+
+            <div class="p-6 md:p-10 h-full flex flex-col z-10">
+                <header class="flex justify-between items-center mb-4 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[03/09]</span>
+                    <span class="font-display text-[10px] md:text-xs font-bold uppercase tracking-widest text-neutral-400">Earning Potential</span>
+                </header>
+
+                <div class="flex-grow flex flex-col justify-end">
+                    <h2 class="text-2xl md:text-3xl mb-4 text-white font-display uppercase tracking-tight [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+                        Your Future Salary
+                    </h2>
+
+                    <!-- Salary Highlight -->
+                    <div class="bg-gradient-to-r from-[#0063A7]/30 to-[#009999]/20 p-4 rounded-lg mb-4 [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll border border-[#009999]/30">
+                        <div class="text-center">
+                            <span class="text-neutral-400 text-xs uppercase tracking-wider">Oklahoma Average</span>
+                            <div class="text-[#009999] font-display text-5xl md:text-6xl">$54,276</div>
+                            <span class="text-neutral-400 text-sm">per year</span>
+                        </div>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div class="w-full flex items-end gap-3 h-[28vh] md:h-56 mb-4 border-b border-white/20 pb-0 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll bar-stage">
+
+                        <!-- Bar 1: Entry Level -->
+                        <div class="flex flex-col items-center justify-end w-1/4 group h-full">
+                            <span class="text-[10px] font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity text-[#009999]">$45K</span>
+                            <div class="w-full bg-[#0063A7] rounded-t-sm animate-bar relative" style="height: 42%; animation-delay: 0.1s;"></div>
+                            <span class="text-[8px] md:text-[10px] uppercase font-bold mt-2 text-center text-neutral-400">Entry<br>Level</span>
+                        </div>
+
+                        <!-- Bar 2: Average -->
+                        <div class="flex flex-col items-center justify-end w-1/4 group h-full">
+                            <span class="text-[10px] font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity text-[#009999]">$54K</span>
+                            <div class="w-full bg-[#009999] rounded-t-sm animate-bar relative" style="height: 51%; animation-delay: 0.3s"></div>
+                            <span class="text-[8px] md:text-[10px] uppercase font-bold mt-2 text-center text-neutral-400">OK<br>Average</span>
+                        </div>
+
+                        <!-- Bar 3: Experienced -->
+                        <div class="flex flex-col items-center justify-end w-1/4 group h-full">
+                            <span class="text-[10px] font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity text-[#009999]">$86K</span>
+                            <div class="w-full bg-[#0063A7] rounded-t-sm animate-bar relative" style="height: 81%; animation-delay: 0.5s"></div>
+                            <span class="text-[8px] md:text-[10px] uppercase font-bold mt-2 text-center text-neutral-400">75th<br>Percentile</span>
+                        </div>
+
+                        <!-- Bar 4: Top Earners -->
+                        <div class="flex flex-col items-center justify-end w-1/4 group h-full">
+                            <span class="text-[10px] font-bold mb-1 opacity-0 group-hover:opacity-100 transition-opacity text-[#009999]">$107K</span>
+                            <div class="w-full bg-[#009999] rounded-t-sm animate-bar relative" style="height: 100%; animation-delay: 0.7s"></div>
+                            <span class="text-[8px] md:text-[10px] uppercase font-bold mt-2 text-center text-neutral-400">Top<br>Earners</span>
+                        </div>
+                    </div>
+
+                    <div class="[animation:animationIn_0.8s_ease-out_0.9s_both] animate-on-scroll bg-white/5 p-3 rounded-lg border-l-2 border-[#009999]">
+                        <p class="text-[10px] md:text-xs text-neutral-300">
+                            <strong class="text-white">Plus overtime:</strong> Oklahoma HVAC techs average <span class="text-[#009999]">$6,750/year</span> in overtime pay.
+                        </p>
+                        <p class="text-[9px] text-neutral-500 mt-1">Sources: ZipRecruiter, Indeed, Glassdoor (2026)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: PROGRAM OVERVIEW -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center rounded-xl" id="slide-3">
+            <div class="flex flex-col h-full p-6 md:p-10 relative">
+                <header class="flex justify-between items-center mb-6 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll z-10">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[04/09]</span>
+                    <span class="font-display text-[10px] md:text-xs font-bold uppercase tracking-widest text-neutral-400">Program Overview</span>
+                </header>
+
+                <div class="flex-grow flex flex-col justify-center space-y-6">
+                    <div class="[animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+                        <h2 class="text-3xl md:text-4xl text-white font-display uppercase tracking-tight leading-none mb-2">
+                            Your Path to<br><span class="text-[#009999]">A Skilled Trade</span>
+                        </h2>
+                        <div class="w-12 h-1 bg-[#009999]"></div>
+                    </div>
+
+                    <!-- Program Details -->
+                    <div class="space-y-3 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+                            <div class="w-12 h-12 bg-[#0063A7] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-lg">1,000 Hours</div>
+                                <div class="text-neutral-400 text-xs">~10 months full-time completion</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+                            <div class="w-12 h-12 bg-[#0063A7] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-lg">Flexible Schedule</div>
+                                <div class="text-neutral-400 text-xs">Morning: 8-11 AM | Afternoon: 12:45-3:45 PM</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+                            <div class="w-12 h-12 bg-[#0063A7] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-lg">Open Enrollment</div>
+                                <div class="text-neutral-400 text-xs">Adults & High School Juniors/Seniors</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="[animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll bg-[#009999]/10 p-4 rounded-lg border border-[#009999]/30">
+                        <div class="flex items-start gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <p class="text-xs text-neutral-200">
+                                <strong class="text-[#009999]">Journeyman's License Credit:</strong> May substitute for up to 2 years of the 3-year apprenticeship requirement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: CURRICULUM -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center rounded-xl" id="slide-4">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#0063A7]/20 to-transparent"></div>
+            </div>
+
+            <div class="relative z-10 flex flex-col h-full p-6 md:p-10">
+                <header class="flex justify-between items-center mb-6 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[05/09]</span>
+                    <span class="font-display text-[10px] md:text-xs font-bold uppercase tracking-widest text-neutral-400">Curriculum</span>
+                </header>
+
+                <div class="flex-grow flex flex-col">
+                    <div class="mb-6 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll">
+                        <h2 class="text-3xl md:text-4xl text-white font-display uppercase tracking-tight leading-none">
+                            What You'll<br><span class="text-[#009999]">Learn</span>
+                        </h2>
+                    </div>
+
+                    <div class="space-y-2 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll flex-grow">
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded border-l-2 border-[#009999]">
+                            <span class="w-6 h-6 bg-[#009999] text-[#0a2540] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                            <span class="text-sm text-white font-medium">Electricity for HVAC</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded border-l-2 border-[#0063A7]">
+                            <span class="w-6 h-6 bg-[#0063A7] text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                            <span class="text-sm text-white font-medium">General Safety</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded border-l-2 border-[#009999]">
+                            <span class="w-6 h-6 bg-[#009999] text-[#0a2540] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                            <span class="text-sm text-white font-medium">Refrigeration Handling & Systems</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded border-l-2 border-[#0063A7]">
+                            <span class="w-6 h-6 bg-[#0063A7] text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
+                            <span class="text-sm text-white font-medium">Heat and Air Flow</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded border-l-2 border-[#009999]">
+                            <span class="w-6 h-6 bg-[#009999] text-[#0a2540] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
+                            <span class="text-sm text-white font-medium">System Installation & Start-Up</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded border-l-2 border-[#0063A7]">
+                            <span class="w-6 h-6 bg-[#0063A7] text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">6</span>
+                            <span class="text-sm text-white font-medium">Plumbing for HVAC</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded border-l-2 border-[#009999]">
+                            <span class="w-6 h-6 bg-[#009999] text-[#0a2540] rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">7</span>
+                            <span class="text-sm text-white font-medium">Career Capstone / Internship</span>
+                        </div>
+                    </div>
+
+                    <div class="[animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll mt-4 text-center">
+                        <p class="text-[10px] text-neutral-400 uppercase tracking-wider">State-of-the-art workshop + Hands-on training</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: CERTIFICATIONS -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center rounded-xl" id="slide-5">
+            <div class="flex flex-col h-full p-6 md:p-10 justify-between">
+                <header class="flex justify-between items-center [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[06/09]</span>
+                    <span class="font-display text-[10px] md:text-xs font-bold uppercase tracking-widest text-neutral-400">Certifications</span>
+                </header>
+
+                <div class="flex-grow flex flex-col justify-center py-6">
+                    <div class="mb-6 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll text-center">
+                        <h2 class="text-3xl md:text-4xl text-white font-display uppercase tracking-tight leading-none">
+                            Industry<br><span class="text-[#009999]">Credentials</span>
+                        </h2>
+                        <p class="text-neutral-400 text-xs mt-3">Graduate with certifications employers recognize</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                        <div class="bg-white/5 border border-[#009999]/30 p-4 rounded-lg text-center hover:border-[#009999] transition-colors group">
+                            <div class="w-12 h-12 mx-auto bg-[#0063A7]/30 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#009999]/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div class="text-[#009999] font-bold text-sm mb-1">OSHA-10</div>
+                            <div class="text-neutral-400 text-[10px] uppercase">General Safety</div>
+                        </div>
+
+                        <div class="bg-white/5 border border-[#009999]/30 p-4 rounded-lg text-center hover:border-[#009999] transition-colors group">
+                            <div class="w-12 h-12 mx-auto bg-[#0063A7]/30 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#009999]/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><rect width="16" height="12" x="4" y="6" rx="2"/><path d="M4 18h16"/></svg>
+                            </div>
+                            <div class="text-[#009999] font-bold text-sm mb-1">EPA 608</div>
+                            <div class="text-neutral-400 text-[10px] uppercase">Refrigerant Handling</div>
+                        </div>
+
+                        <div class="bg-white/5 border border-[#009999]/30 p-4 rounded-lg text-center hover:border-[#009999] transition-colors group">
+                            <div class="w-12 h-12 mx-auto bg-[#0063A7]/30 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#009999]/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div class="text-[#009999] font-bold text-sm mb-1">NATE</div>
+                            <div class="text-neutral-400 text-[10px] uppercase">Ready to Work</div>
+                        </div>
+
+                        <div class="bg-white/5 border border-[#009999]/30 p-4 rounded-lg text-center hover:border-[#009999] transition-colors group">
+                            <div class="w-12 h-12 mx-auto bg-[#0063A7]/30 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#009999]/20 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                            </div>
+                            <div class="text-[#009999] font-bold text-sm mb-1">NOCTI</div>
+                            <div class="text-neutral-400 text-[10px] uppercase">HVAC Install & Start-Up</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="[animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll text-center pt-4 border-t border-white/10">
+                    <div class="flex items-center justify-center gap-2 text-[#009999]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                        <span class="text-xs uppercase tracking-wider font-bold">SkillsUSA Oklahoma Affiliated</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: INSTRUCTORS -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center rounded-xl" id="slide-6">
+            <div class="flex flex-col h-full p-6 md:p-10">
+                <header class="flex justify-between items-center mb-6 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[07/09]</span>
+                    <span class="font-display text-[10px] md:text-xs font-bold uppercase tracking-widest text-neutral-400">Your Instructors</span>
+                </header>
+
+                <div class="flex-grow flex flex-col justify-center">
+                    <div class="mb-6 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll text-center">
+                        <h2 class="text-3xl md:text-4xl text-white font-display uppercase tracking-tight leading-none">
+                            Learn From<br><span class="text-[#009999]">The Pros</span>
+                        </h2>
+                    </div>
+
+                    <div class="space-y-4 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                        <!-- Instructor 1 -->
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
+                            <div class="w-20 h-20 bg-[#0063A7] rounded-full overflow-hidden border-2 border-[#009999] flex-shrink-0">
+                                <img src="instructor-travis.jpg" alt="Travis Southerland" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-lg">Travis Southerland</div>
+                                <div class="text-[#009999] text-xs uppercase tracking-wider font-bold mb-2">HVAC Technician Instructor</div>
+                                <p class="text-neutral-400 text-xs">Industry veteran bringing real-world troubleshooting and repair expertise to the classroom.</p>
+                            </div>
+                        </div>
+
+                        <!-- Instructor 2 -->
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
+                            <div class="w-20 h-20 bg-[#0063A7] rounded-full overflow-hidden border-2 border-[#009999] flex-shrink-0">
+                                <img src="instructor-shane.jpg" alt="Shane Stepps" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="text-white font-bold text-lg">Shane Stepps</div>
+                                <div class="text-[#009999] text-xs uppercase tracking-wider font-bold mb-2">HVAC Install Instructor</div>
+                                <p class="text-neutral-400 text-xs">Specializing in residential and light commercial installation, startup, and system optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="[animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll mt-6 bg-[#009999]/10 p-4 rounded-lg border border-[#009999]/30 text-center">
+                        <p class="text-sm text-white font-medium">"We don't just teach theory—we prepare you for day one on the job."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: FINANCIAL AID -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] relative flex flex-col overflow-hidden border border-white/10 shadow-2xl snap-center rounded-xl" id="slide-7">
+            <div class="absolute inset-0 bg-grid-pattern opacity-15"></div>
+
+            <div class="flex flex-col h-full z-10 p-6 md:p-10">
+                <header class="flex justify-between items-center mb-6 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[08/09]</span>
+                    <span class="font-display text-[10px] md:text-xs font-bold uppercase tracking-widest text-neutral-400">Affordability</span>
+                </header>
+
+                <div class="flex-grow flex flex-col justify-center">
+                    <div class="mb-6 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll text-center">
+                        <h2 class="text-3xl md:text-4xl text-white font-display uppercase tracking-tight leading-none">
+                            We Make It<br><span class="text-[#009999]">Affordable</span>
+                        </h2>
+                    </div>
+
+                    <div class="space-y-3 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                        <div class="flex items-center gap-4 bg-[#009999]/10 p-4 rounded-lg border border-[#009999]/30">
+                            <div class="w-10 h-10 bg-[#009999] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a2540" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold">Federal Financial Aid</div>
+                                <div class="text-neutral-400 text-xs">This program is approved for federal aid</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+                            <div class="w-10 h-10 bg-[#0063A7] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold">Payment Plans</div>
+                                <div class="text-neutral-400 text-xs">Flexible options to fit your budget</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+                            <div class="w-10 h-10 bg-[#0063A7] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold">Scholarships Available</div>
+                                <div class="text-neutral-400 text-xs">Ask about scholarship opportunities</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="[animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll mt-6 text-center">
+                        <p class="text-xs text-neutral-400 mb-4">Don't let cost be a barrier to your future.</p>
+                        <a href="tel:5802232070" class="inline-flex items-center gap-2 text-[#009999] font-bold text-sm hover:underline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Call to discuss your options
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 9: CTA -->
+        <section class="slide-container flex-shrink-0 w-[85vw] md:w-[500px] bg-[#0a2540] relative flex flex-col overflow-hidden border border-[#009999]/50 shadow-2xl snap-center rounded-xl" id="slide-8">
+            <div class="absolute inset-0 bg-grid-pattern opacity-15"></div>
+
+            <div class="flex flex-col h-full z-10 p-6 md:p-10 relative justify-between">
+                <header class="flex justify-between items-center [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll">
+                    <span class="font-mono text-xs text-[#009999] font-bold">[09/09]</span>
+                    <div class="flex gap-1">
+                        <div class="w-2.5 h-2.5 bg-[#009999] rounded-full animate-pulse"></div>
+                    </div>
+                </header>
+
+                <div class="[animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll text-center flex flex-col items-center">
+                    <div class="w-16 h-16 mx-auto bg-white/5 rounded-full flex items-center justify-center mb-6 border border-[#009999] shadow-[0_0_15px_rgba(153,204,102,0.3)] pulse-glow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+                    </div>
+
+                    <h2 class="uppercase leading-tight text-3xl md:text-5xl font-black font-display mb-4 text-white">
+                        Take The<br>
+                        <span class="text-[#009999]">First Step</span>
+                    </h2>
+                    <p class="leading-relaxed text-sm text-neutral-200 font-medium max-w-[90%] mx-auto mb-6">
+                        Your future in HVAC starts with a conversation. Request information or schedule a campus visit today.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="space-y-3 w-full max-w-xs">
+                        <a href="https://www.sotech.edu/apps/pages/install-technician" target="_blank" class="flex items-center justify-center px-6 py-4 bg-[#009999] text-[#0a2540] font-black rounded hover:bg-white transition-all hover:scale-105 group shadow-lg shadow-[#009999]/20 border border-transparent hover:border-[#009999]">
+                            <span class="font-display uppercase tracking-widest text-sm">Request Info</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-2 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                        <a href="tel:5802232070" class="flex items-center justify-center px-6 py-3 bg-transparent text-white font-bold rounded hover:bg-white/10 transition-all border border-white/30 hover:border-[#009999]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span class="text-sm">(580) 223-2070</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 pt-4 border-t border-white/10 [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll">
+                    <div class="flex items-center gap-2 text-neutral-400 text-[10px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>2610 Sam Noble Parkway, Ardmore, OK 73401</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest text-neutral-500">www.sotech.edu</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Animation & Navigation Logic -->
+    <script>
+      (function () {
+        const once = true;
+
+        if (!window.__inViewIO) {
+          window.__inViewIO = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate");
+                if (once) window.__inViewIO.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.2, rootMargin: "0px -10% 0px -10%" });
+        }
+
+        window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+          document.querySelectorAll(selector).forEach((el) => {
+            window.__inViewIO.observe(el);
+          });
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initInViewAnimations();
+            initPagination();
+        });
+
+        function initPagination() {
+            const slider = document.getElementById('slider');
+            const slides = document.querySelectorAll('.slide-container');
+            const dotsContainer = document.getElementById('pagination-dots');
+            const dots = dotsContainer.children;
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            const updateDots = (activeIndex) => {
+                Array.from(dots).forEach((dot, index) => {
+                    if (index === activeIndex) {
+                        dot.className = "w-1.5 h-1.5 rounded-full bg-[#009999] cursor-pointer hover:scale-125 transition-transform";
+                    } else {
+                        dot.className = "w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#009999]/50 cursor-pointer transition-colors hover:scale-125 transition-transform";
+                    }
+                });
+            };
+
+            const slideObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(slides).indexOf(entry.target);
+                        if(index !== -1) {
+                            updateDots(index);
+                        }
+                    }
+                });
+            }, {
+                root: slider,
+                threshold: 0.6
+            });
+
+            slides.forEach(slide => slideObserver.observe(slide));
+
+            Array.from(dots).forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                });
+            });
+
+            const getScrollAmount = () => {
+                 return window.innerWidth < 768 ? window.innerWidth * 0.85 : 548;
+            };
+
+            if(prevBtn && nextBtn && slider) {
+                nextBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                });
+            }
+        }
+      })();
+    </script>
+
+</body>
+</html>
