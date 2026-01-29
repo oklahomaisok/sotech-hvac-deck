@@ -265,9 +265,9 @@
                     <!-- Salary Highlight -->
                     <div class="bg-gradient-to-r from-[#0063A7]/30 to-[#009999]/20 p-4 rounded-lg mb-4 [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll border border-[#009999]/30">
                         <div class="text-center">
-                            <span class="text-neutral-400 text-xs uppercase tracking-wider">Oklahoma Average</span>
-                            <div class="text-[#009999] font-display text-5xl md:text-6xl">$54,276</div>
-                            <span class="text-neutral-400 text-sm">per year</span>
+                            <span class="text-neutral-400 text-xs uppercase tracking-wider">Expected Pay Range</span>
+                            <div class="text-[#009999] font-display text-5xl md:text-6xl">$17-35</div>
+                            <span class="text-neutral-400 text-sm">per hour</span>
                         </div>
                     </div>
 
@@ -550,49 +550,54 @@
                 </header>
 
                 <div class="flex-grow flex flex-col justify-center">
-                    <div class="mb-6 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll text-center">
+                    <div class="mb-4 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll text-center">
                         <h2 class="text-3xl md:text-4xl text-white font-display uppercase tracking-tight leading-none">
-                            We Make It<br><span class="text-[#009999]">Affordable</span>
+                            Tuition That<br><span class="text-[#009999]">Makes Sense</span>
                         </h2>
                     </div>
 
-                    <div class="space-y-3 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
-                        <div class="flex items-center gap-4 bg-[#009999]/10 p-4 rounded-lg border border-[#009999]/30">
-                            <div class="w-10 h-10 bg-[#009999] rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a2540" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-white font-bold">Federal Financial Aid</div>
-                                <div class="text-neutral-400 text-xs">This program is approved for federal aid</div>
-                            </div>
+                    <!-- Tuition Costs Grid -->
+                    <div class="grid grid-cols-2 gap-2 mb-4 [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll">
+                        <div class="col-span-2 bg-[#009999]/20 border border-[#009999] p-4 rounded-lg text-center">
+                            <div class="text-[#009999] font-display text-4xl md:text-5xl">FREE</div>
+                            <div class="text-white text-xs font-bold mt-1">In-District High School Students</div>
                         </div>
-
-                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
-                            <div class="w-10 h-10 bg-[#0063A7] rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-white font-bold">Payment Plans</div>
-                                <div class="text-neutral-400 text-xs">Flexible options to fit your budget</div>
-                            </div>
+                        <div class="bg-white/5 border border-white/10 p-3 rounded-lg text-center">
+                            <div class="text-[#009999] font-display text-2xl md:text-3xl">$2,500</div>
+                            <div class="text-neutral-400 text-[10px] uppercase">In-District Adult</div>
                         </div>
-
-                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
-                            <div class="w-10 h-10 bg-[#0063A7] rounded-full flex items-center justify-center flex-shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                            </div>
-                            <div>
-                                <div class="text-white font-bold">Scholarships Available</div>
-                                <div class="text-neutral-400 text-xs">Ask about scholarship opportunities</div>
-                            </div>
+                        <div class="bg-white/5 border border-white/10 p-3 rounded-lg text-center">
+                            <div class="text-white font-display text-2xl md:text-3xl">$5,000</div>
+                            <div class="text-neutral-400 text-[10px] uppercase">Out-of-District</div>
                         </div>
                     </div>
 
-                    <div class="[animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll mt-6 text-center">
-                        <p class="text-xs text-neutral-400 mb-4">Don't let cost be a barrier to your future.</p>
+                    <div class="space-y-2 [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll">
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
+                            <div class="w-8 h-8 bg-[#009999] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0a2540" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div class="text-sm text-white">Federal Financial Aid Approved</div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
+                            <div class="w-8 h-8 bg-[#0063A7] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <div class="text-sm text-white">Payment Plans Available</div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
+                            <div class="w-8 h-8 bg-[#0063A7] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                            </div>
+                            <div class="text-sm text-white">Scholarships Available</div>
+                        </div>
+                    </div>
+
+                    <div class="[animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll mt-4 text-center">
+                        <p class="text-[10px] text-neutral-500 mb-3">Tuition includes books, supplies, and fees.</p>
                         <a href="tel:5802232070" class="inline-flex items-center gap-2 text-[#009999] font-bold text-sm hover:underline">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            Call to discuss your options
+                            Call to discuss options
                         </a>
                     </div>
                 </div>
